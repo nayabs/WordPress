@@ -14,29 +14,6 @@
 
 get_header(); ?>
 
- <h1>Basic Slider</h1>
-<div id="slider">
-  <a href="https://www.facebook.com/photo.php?fbid=763249117026122&set=a.154852517865788.27725.100000231219720&type=3&theater" class="control_next">>></a>
-  <a href="https://www.facebook.com/photo.php?fbid=661149700569398&set=a.154852517865788.27725.100000231219720&type=3&theater" class="control_prev"><</a>
-  <ul>
-    <li>SLIDE 1</li>
-    <li style="background: #aaa;">SLIDE 2</li>
-    <li>SLIDE 3</li>
-    <li style="background: #aaa;">SLIDE 4</li>
-  </ul>  
-</div>
-
-<div class="slider_option">
-  <input type="checkbox" id="checkbox">
-  <label for="checkbox">Autoplay Slider</label>
-</div>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-        <script src="js/index.js"></script>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
 		<?php
 		if ( have_posts() ) :
 
