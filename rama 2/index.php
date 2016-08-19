@@ -1,69 +1,65 @@
+<?php
+/**
+ * The header for our theme.
+ *
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package rama
  */
-
-get_header(); ?>
-
-
-// this code is being used to make a slider
-// below is the code for an interactive slider. The code is referenced from cope.pen.io author:Mariam Massadeh
-<div class="slider">
-	<input type="radio" name="slide_switch" id="id1"/>
-	<label for="id1">
-		<img src="http://localhost:8888/wordpress/wp-content/uploads/2016/08/rama.jpg" width="100"/>
-	</label>
-	<img src="http://localhost:8888/wordpress/wp-content/uploads/2016/08/rama.jpg"/>
-	
-	<!--Lets show the second image by default on page load-->
-	<input type="radio" name="slide_switch" id="id2" checked="checked"/>
-	<label for="id2">
-		<img src="http://localhost:8888/wordpress/wp-content/uploads/2016/08/rama2.jpg" width="100"/>
-	</label>
-	<img src="http://localhost:8888/wordpress/wp-content/uploads/2016/08/rama2.jpg"/>
+ 
+?><!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+    
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+<?php 
+	wp_head(); 
+/*  (Put your reference here) !!!! 
+slider source code: https://codepen.io/dudleystorey/pen/ehKpi
+*/
+?>
+ 
+</head>
+<body>
+<!-- put description here about where the images are from and how there is a class which links to the css -->
+<div id="photoslideshow">
+<figure>
+<img src="http://phoenix.sheridanc.on.ca/~ccit3669/wp-content/themes/images/rama1.jpg" alt="">
+<img src="http://phoenix.sheridanc.on.ca/~ccit3669/wp-content/themes/images/rama2.jpg" alt="">
+</figure>
 </div>
+</body>
+<body <?php body_class();
 
-<!-- We will use PrefixFree - a script that takes care of CSS3 vendor prefixes
-You can download it from http://leaverou.github.com/prefixfree/ -->
-<script src="http://thecodeplayer.com/uploads/js/prefixfree.js" type="text/javascript"></script>
+//The code below defines the masthead of the site which is where users can place a banner and the site-navigation/main-navigation
+where the top-menu bar is defined, made clickable to posts/pages and given ids so that it can be styled in css
 
-
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
-		<?php
-		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-
+ ?>>
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'rama' ); ?></a>
+	<header id="masthead" class="site-header" role="banner">
+		<div class="site-branding">
+			<?php
+			if ( is_front_page() && is_home() ) : ?>
+				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<?php else : ?>
+				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 			<?php
 			endif;
-
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php
-get_sidebar();
-get_footer();
-
+			$description = get_bloginfo( 'description', 'display' );
+			if ( $description || is_customize_preview() ) : ?>
+				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+			<?php
+			endif; ?>
+		</div><!-- .site-branding -->
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'rama' ); ?></button>
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+		</nav><!-- #site-navigation -->
+	</header><!-- #masthead -->
+	<div id="content" class="site-content">
