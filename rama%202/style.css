@@ -506,7 +506,7 @@ body {background: #ccc;}
 }
 
 .slider label {
-	/*image thumbnails will be sen below with this styling along with effects for clicking.*/
+	/*image thumbnails will be send below with this styling along with effects for clicking.*/
 	margin: 18px 0 0 18px;
 	border: 3px solid #999;
 	float: left;
@@ -704,13 +704,12 @@ a:active {
 	background: hsl(0, 0%, 19%);
 } 
 
-/* this is to design the Primary menu toggle when the screen is accessed through a mobile device. */
+/* the menu will not display, and change to a toggle for mobile screen sizes. */
 .menu-toggle {
 	display: none;
 }
 
-/*this is a media query for the menu toggle which makes it responsive*/
-/*elemets are adjusted when the width is below 600 pixels */
+/*This media screen adjusts the website when it begins to shrink to 600px*/
 @media screen and (max-width: 600px) {
 .menu-toggle {
 	margin-left: 90px;
@@ -1007,7 +1006,7 @@ input[type="search"] {
     display: none; 
 }
 
-/* This makes the header responsive */
+/* The header section of the site will be responsive at a max-width of 600px. Then is will adjust accordingly */
 @media screen and (max-width: 600px) {
     .site-branding { padding: 0; }
     
