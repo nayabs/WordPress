@@ -22,11 +22,11 @@ function plugin_enqueue_scripts (){
 add_action( 'wp_enqueue_scripts','plugin_enqueue_scripts' );
 
 /*
-* Register the custom 'goals' post type.
+* this function registers the custom 'goals' post type
 */
 
 function custom_post_type () { 
-	// An array of labels for the custom 'Porfolio' post type.
+	// these are arrays of labels for the custom 'Porfolio' post type.
 	$labels = array (
 		'name' => 'goals',
 		'singular_name' => 'goals',
@@ -67,7 +67,7 @@ add_action('init','custom_post_type');
 
 /*
 *
-* Create the widget
+* this function will create the widget 
 *
 */
 
@@ -129,11 +129,7 @@ class rama_my_plugin extends WP_Widget {
 		}
 	}
 
-	/*
-	*
-	* Create the widget in the WordPress administration dashboard menu. 
-	*
-	*/
+	/* this function will create the widget in the WordPress administration dashboard menu. */
 	public function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance, array( 
 			'title' => ''
@@ -142,14 +138,13 @@ class rama_my_plugin extends WP_Widget {
 		$title = strip_tags($instance['title']);
 	?>
 
-		<!-- Creates a 'Title' label and an input for the user to enter a custom widget title. -->
+		/* here the user can create a title label to enter in the custom widget title */
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
 		</p>
 
 	<?php }
 
-	// Sanitize, save and submit the custom title created by the user.
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$new_instance = wp_parse_args( (array) $new_instance, array(
@@ -161,15 +156,11 @@ class rama_my_plugin extends WP_Widget {
 	}
 }
 
-/*
-*
-* Register the widget.
-*
-*/
+/* this code is Registering the widget */
 add_action('widgets_init', create_function('', 'return register_widget("rama_my_plugin");'));
 
 
-// Add the shortcode
+// this function is adding the shortcode
 add_shortcode('rama-shortcode', 'custom_post_type_shortcode');
 
 function custom_post_type_shortcode() {
