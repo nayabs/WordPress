@@ -19,14 +19,14 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <?php 
 	wp_head(); 
-/*  (Put your reference here) !!!! 
-slider source code: https://codepen.io/dudleystorey/pen/ehKpi
-*/
+
+//slider source code: https://codepen.io/dudleystorey/pen/ehKpi
+
 ?>
  
 </head>
 <body>
-<!-- put description here about where the images are from and how there is a class which links to the css -->
+// the images are from my social media accounts that i uploaded through the phoenix and on the wordpress media
 <div id="photoslideshow">
 <figure>
 <img src="http://phoenix.sheridanc.on.ca/~ccit3669/wp-content/themes/images/rama1.jpg" alt="">
