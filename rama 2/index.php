@@ -1,18 +1,33 @@
-<?php
-/**
- * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package rama
  */
 
 get_header(); ?>
+
+
+// this code is being used to make a slider
+// below is the code for an interactive slider. The code is referenced from cope.pen.io author:Mariam Massadeh
+<div class="slider">
+	<input type="radio" name="slide_switch" id="id1"/>
+	<label for="id1">
+		<img src="http://localhost:8888/wordpress/wp-content/uploads/2016/08/rama.jpg" width="100"/>
+	</label>
+	<img src="http://localhost:8888/wordpress/wp-content/uploads/2016/08/rama.jpg"/>
+	
+	<!--Lets show the second image by default on page load-->
+	<input type="radio" name="slide_switch" id="id2" checked="checked"/>
+	<label for="id2">
+		<img src="http://localhost:8888/wordpress/wp-content/uploads/2016/08/rama2.jpg" width="100"/>
+	</label>
+	<img src="http://localhost:8888/wordpress/wp-content/uploads/2016/08/rama2.jpg"/>
+</div>
+
+<!-- We will use PrefixFree - a script that takes care of CSS3 vendor prefixes
+You can download it from http://leaverou.github.com/prefixfree/ -->
+<script src="http://thecodeplayer.com/uploads/js/prefixfree.js" type="text/javascript"></script>
+
+
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 
 		<?php
 		if ( have_posts() ) :
@@ -51,3 +66,4 @@ get_header(); ?>
 <?php
 get_sidebar();
 get_footer();
+
